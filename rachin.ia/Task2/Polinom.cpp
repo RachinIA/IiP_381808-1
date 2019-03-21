@@ -30,18 +30,25 @@ Polinom::~Polinom()
 }
 
 Polinom Polinom::operator+(const Polinom& i)
-{
-	if (k<=i.k) {
-		Polinom Res;
+{	
+	if (k == i.k) {
+		Polinom Res(k);
 		for (int j = 0; j < k + 1; j++) Res.coef[j] = coef[j] + i.coef[j];
-		for (int j = k + 1; j < i.k + 1; j++) Res.coef[j] = i.coef[j];
 		return Res;
 	}
 	else {
-		Polinom Res;
-		for (int j = 0; j < i.k + 1; j++) Res.coef[j] = coef[j] + i.coef[j];
-		for (int j = i.k + 1; j < k + 1; j++) Res.coef[j] = coef[j];
-		return Res;
+		if (k < i.k) {
+			Polinom Res(i.k);
+			for (int j = 0; j < k + 1; j++) Res.coef[j] = coef[j] + i.coef[j];
+			for (int j = k + 1; j < i.k + 1; j++) Res.coef[j] = i.coef[j];
+			return Res;
+		}
+		else {
+			Polinom Res(k);
+			for (int j = 0; j < i.k + 1; j++) Res.coef[j] = coef[j] + i.coef[j];
+			for (int j = i.k + 1; j < k + 1; j++) Res.coef[j] = coef[j];
+			return Res;
+		}
 	}
 	}
 	
@@ -72,10 +79,12 @@ double& Polinom::operator[](int j)
 void Polinom::Output()
 {
 	cout << coef[0];
-	if(coef[1]>0)
-	cout << " + " << coef[1] << "x";
-	else cout << " " << coef[1] << "x";
-
+	if (coef[1] != 0) 
+	{
+	if (coef[1] > 0)
+		cout << "+" << coef[1] << "x";
+	else cout << coef[1] << "x";
+	}
 	for(int j=2;(j<k+1);j++)
 	{
 		if (coef[j] == 0)
@@ -86,15 +95,15 @@ void Polinom::Output()
 		{
 			if (coef[j] > 0)
 			{
-				if(coef[j]==1)cout << " +" << "x^" << j;
+				if(coef[j]==1)cout << "+" << "x^" << j;
 				else
-				cout << " +" << coef[j] << "x^" << j;
+				cout << "+" << coef[j] << "x^" << j;
 			}
 			else 
 			{
-				if (coef[j] == -1)cout << " -" << "x^" << j;
+				if (coef[j] == -1)cout << "-" << "x^" << j;
 				else
-					cout << " " << coef[j] << "x^" << j;
+					cout << coef[j] << "x^" << j;
 			}
 		}
 	}

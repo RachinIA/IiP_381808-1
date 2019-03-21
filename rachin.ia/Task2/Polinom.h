@@ -52,11 +52,11 @@ enum Exc
 struct Excep
 {
 	Exc overflow;
-	int j;
-	Excep(Exc _overflow, int _j)
+	int d;
+	Excep(Exc _overflow, int _d)
 	{
 		overflow = _overflow;
-		j = _j;
+		d = _d;
 	}
 
 };
