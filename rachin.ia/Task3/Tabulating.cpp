@@ -70,6 +70,7 @@ void Tabulating::Tabul(FTab* F)
 		AX[i] = f;
 		FY[i] = F(f);
 	}
+	
 	AX[n-1] = b;
 	FY[n-1] = F(b);
 }
