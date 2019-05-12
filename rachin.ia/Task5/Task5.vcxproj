@@ -146,6 +146,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Kassa.h" />
+    <ClInclude Include="Sklad.h" />
+    <ClInclude Include="Tovar.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Kassa.cpp" />
+    <ClCompile Include="KassaTest.cpp" />
+    <ClCompile Include="Sklad.cpp" />
+    <ClCompile Include="Tovar.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\Task4\input.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
